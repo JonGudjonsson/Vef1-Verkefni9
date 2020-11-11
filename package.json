@@ -1,0 +1,41 @@
+{
+  "name": "vef1-2020-v9",
+  "version": "1.0.0",
+  "description": "Verkefni9",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "browser-sync": "browser-sync start --server --files scripts.js styles.css",
+    "rollup-watch": "rollup -c -w",
+    "dev": "concurrently npm:rollup-watch npm:browser-sync",
+	"test": "eslint \"src/*.js\" \"src/lib/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonGudjonsson/Vef1-Verkefni9.git"
+  },
+  "author": "Jon Gudjonsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonGudjonsson/Vef1-Verkefni9/issues"
+  },
+  "homepage": "https://github.com/JonGudjonsson/Vef1-Verkefni9#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "browser-sync": "^2.26.13",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "rollup": "^2.33.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "leaflet": "^1.7.1"
+  }
+}
