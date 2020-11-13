@@ -69,5 +69,22 @@ export function el(name, ...children) {
  * @returns {string} Formatted string.
  */
 export function formatDate(timestamp) {
-  // TODO Útfæra með „vanilla JS“ eða nota date-fns pakka
+  // Convert to Date and extract components
+  let date = new Date(timestamp)
+  let DD = date.getDate();
+  let MM = date.getMonth() + 1;
+  let YYYY = date.getFullYear();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  
+  // Add zero to front in cases where only
+  // single digit
+  if(DD < 10) DD = '0' + DD;
+  if(MM < 10) MM = '0' + MM;
+  if(hh < 10) hh = '0' + hh;
+  if(mm < 10) mm = '0' + mm;
+  if(ss < 10) ss = '0' + ss;
+  
+  return DD + '.' + MM + '.' + YYYY + ' ' + hh + ':' + mm + ':' + ss;
 }
