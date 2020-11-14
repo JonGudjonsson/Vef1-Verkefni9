@@ -2,6 +2,7 @@ import L from 'leaflet';
 import { formatDate } from './utils';
 
 let map;
+let markers = [];
 
 
 // Skilgreinir það sem fer inn í popup 
@@ -13,7 +14,9 @@ function onEachFeature(feature, layer){
 
 // Býr til popup á korti út frá geojson með content
 export function createPopup(geojson, content) {
-  L.geoJSON(geojson, {onEachFeature: onEachFeature}).addTo(map);
+  const marker = L.geoJSON(geojson, {onEachFeature: onEachFeature});
+  marker.addTo(map);
+  markers.push(marker);
 }
 
 // Býr til Leaflet kort og setur miðju á (0, 0) í zoom level 2
@@ -31,6 +34,8 @@ export function init(el) {
 }
 
 // Virkni þegar ýtt er á takka í lista yfir jarðskjálfta
-function buttonMapClick(){
-
+export function buttonMapClick(markerNr){
+	//map.setView(markers[markerNr].getLatLng(), 20);
+	map.flyTo(markers[markerNr].getBounds().getCenter(), 10)
+	markers[markerNr].openPopup();
 }

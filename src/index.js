@@ -51,7 +51,7 @@ function addEarthquakeList(features){
 						el('dd', features[i].properties.detail)
 					),
 					element('div', { 'class': 'buttons' }, null,
-						element('button', null, null, 'Sjá á korti'),
+						element('button', null, { click: () => {buttonClicked(i);}}, 'Sjá á korti'),
 						element('a', { 'href': features[i].properties.detail }, null,'Skoða nánar')
 					)
 				)
@@ -59,6 +59,11 @@ function addEarthquakeList(features){
 		earthquakeList.appendChild(listElement);
 	}
 }
+
+function buttonClicked(markerNr){
+	buttonMapClick(markerNr);
+}
+
 /*
 <li>
             <div>
