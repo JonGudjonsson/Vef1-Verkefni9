@@ -4,10 +4,9 @@ import { formatDate } from './utils';
 let map;
 let markers = [];
 
-
 // Skilgreinir það sem fer inn í popup 
 function onEachFeature(feature, layer){
-	layer.bindPopup('<h1>'+feature.properties.place+'</h1>' + 
+    layer.bindPopup('<h1>'+feature.properties.place+'</h1>' + 
 		            '<p>' + formatDate(feature.properties.time) + '</p>' +
 					'<a href="' + feature.properties.detail + '" target="_blank">Skoða nánar</a>');
 }
